@@ -20,6 +20,18 @@ namespace Blockbuster
             BlockBusterVideo bv = new BlockBusterVideo();
             bv.PrintAllMovies();
             bv.Checkout();
+
+            //List<string> scenes = new List<string>();
+            //scenes.Add("test1");
+
+            //DVD d1 = new DVD();
+            //Movie m1 = new Movie("test", Genre.Action, 90, scenes, d1);
+
+            ////d1.Play();
+
+            //m1.PlayMovie();
+
+           
    
         }
     }

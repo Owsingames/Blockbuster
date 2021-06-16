@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Blockbuster
 {
-   public abstract class Movie
+   public class Movie
     {
         //Recipe for creating a class 
         //1) Properties/Variables 
@@ -21,18 +21,20 @@ namespace Blockbuster
         //2) Virtual Method - child has the option to override 
         //3) Add onto a Virtual Method - overide the method, call base in the child, and write the childs own code
 
-
+        //IPlay property
+        public IPlay Play { get; set; }
         public string Title { get; set; }
         public Genre Category { get; set; }
         public int Runtime { get; set; }
         public List<string> Scenes { get; set; }
 
-        public Movie(string Title, Genre Category, int Runtime, List<string> Scenes)
+        public Movie(string Title, Genre Category, int Runtime, List<string> Scenes, IPlay Play)
         {
             this.Title = Title;
             this.Category = Category;
             this.Runtime = Runtime;
             this.Scenes = Scenes;
+            this.Play = Play;
         }
         
         public void PrintInfo()
@@ -53,7 +55,10 @@ namespace Blockbuster
 
         //Virtual == the child has the option to override the method
         //Abstract == the child MUST override this method
-        public abstract void Play();
+        public void PlayMovie()
+        {
+            Play.Play(Scenes);
+        }
 
         public virtual void PlayWholeMovie()
         {
